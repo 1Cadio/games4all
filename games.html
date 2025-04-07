@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Grid Layout</title>
+    <style>
+        body {
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            width: 80%; /* Adjust as needed */
+            max-width: 1024px; /* Adjust for tablet size */
+        }
+
+        .card {
+            background-color: #ffffff; /* Card background */
+            border-radius: 10px;
+            padding: 15px;
+            color: rgb(0, 0, 0);
+        }
+
+        .card-image {
+            height: 150px; /* Adjust as needed */
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-image img {
+            width: 100%; /* Make the image fill the container */
+            height: 100%;
+            object-fit: cover; /* Maintain aspect ratio and cover the area */
+        }
+
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .card-text {
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        .play-button {
+            position: relative;
+            
+      /* ... other styles ... */
+    width: 80px; /* Adjust this value to your desired width */
+    text-align: center; /* Center the text within the button */          
+  border: 1px solid #0360df;
+  border-radius: 50px;
+  padding: 12px 16px;
+  background-color: #0360df;
+  background-image: radial-gradient(75% 50% at 50% 0%, #f4feff, transparent), radial-gradient(75% 35% at 50% 80%, #8de3fc, transparent);
+  box-shadow: inset 0 -2px 4px 1px rgba(17, 110, 231, 0.6), inset 0 -4px 4px 1px #8de3fc, inset 0 0 2px 1px rgba(255, 255, 255, 0.2), 0 1px 4px 1px rgba(17, 110, 231, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-shadow: 0 1px 1px #116ee7;
+  transition-property: border-color, transform, background-color;
+  transition-duration: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="card">
+            <div class="card-image">
+                <img src="games/slope/slope4.jpeg" alt="Slope Game Image">
+            </div>
+            <div class="card-title">Slope</div>
+            <div class="card-text">balls | works better on computers/laptops but still playable on ipad</div>
+            <a href="games\slope\index.html" class="play-button">Play</a>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="images/bitlife-ribbons-how-get-all-complete-list-android-ios-cheats-guide-tips-become.jpg" alt="BitLife Game Image">
+            </div>
+            <div class="card-title">BitLife</div>
+            <div class="card-text">you know this one already | works on both ipad and computers great</div>
+            <a href="games\bitlife\index.html" class="play-button">Play</a>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="images/basket-random_16x9-cover.png" alt="Another Slope Game Image">
+            </div>
+            <div class="card-title">Basket Random</div>
+            <div class="card-text">multiplayer basketball game | works great on
+                both ipad and computers
+            </div>
+            <a href="games\basket-random\index.html" class="play-button">Play</a>
+        </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="images\header.jpg" alt="Another BitLife Game Image">
+            </div>
+            <div class="card-title">Baldi's Basics</div>
+            <div class="card-text">A bald guy chases you with a ruler | Works on PC only
+            
+            </div>
+            <a href="games\baldis-basics\index.html" class="play-button">Play</a>
+        </div>
+         <div class="card">
+            <div class="card-image">
+                <img src="images\cut-the-rope-ebx_16x9-cover.png" alt="Yet Another Slope Game Image">
+            </div>
+            <div class="card-title">Cut the Dih</div>
+            <div class="card-text">show me your dih | works good on both ipad and computers </div>
+            <a href="games/cut-the-rope/" class="play-button">Play</a>
+        </div>
+        <div class="card">
+            <div class="card-image">
+               <img src="images\tomb-of-the-mask-0.png" alt="Yet Another BitLife Game Image">
+            </div>
+            <div class="card-title">Tomb of the Dih</div>
+            <div class="card-text">you can see the pain in his div 💔 | works for both platforms </div>
+            <a href="games/tomb-of-the-dih/" class="play-button">Play</a>
+        </div>
+    </div>
+</body>
+</html>

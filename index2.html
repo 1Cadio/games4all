@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zri.info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background: url('/images/frutiger-background.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation - Frutiger Aero with XP Start Menu Style */
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.85); /* Translucent white */
+            padding: 0;
+            border-right: 2px solid rgba(0, 204, 255, 0.4); /* Frutiger blue */
+            box-shadow: inset -1px -1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            background: linear-gradient(to right, #00CCFF, #00CC00); /* Frutiger blue to green */
+            padding: 10px;
+            font-size: 24px;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .sidebar ul li {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            background: rgba(240, 240, 240, 0.9);
+            padding: 8px;
+            border: 1px solid #000;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5);
+            transition: all 0.1s;
+        }
+
+        .sidebar ul li:hover {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            border: 1px solid #000;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar ul li a {
+            color: #006600;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover,
+        .sidebar ul li a.active {
+            color: #00CCFF; /* Frutiger blue */
+        }
+
+        .visitor-counter {
+            margin: 10px;
+            text-align: center;
+            color: #006600;
+            background: rgba(240, 240, 240, 0.9);
+            padding: 10px;
+            border: 1px solid #000;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-btn {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 10px;
+            background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+            border: 1px solid #000;
+            color: #006600;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5);
+            transition: all 0.1s;
+        }
+
+        .theme-btn:hover {
+            background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content - XP Window Style with Frutiger Aero */
+        .content {
+            flex: 1;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.75);
+            margin: 10px;
+            border: 2px solid #000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Banner - Frutiger Aero Title Bar */
+        .banner {
+            background: linear-gradient(to right, #00CCFF, #00CC00);
+            padding: 10px;
+            margin-bottom: 0;
+            border-bottom: 2px solid #000;
+            text-align: center;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .banner h1 {
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Welcome Section - Blank */
+        .welcome {
+            background: rgba(240, 240, 240, 0.9);
+            padding: 0;
+            margin: 10px;
+            border: 1px solid #000;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome h2 {
+            color: #fff;
+            background: linear-gradient(to right, #00CCFF, #00CC00);
+            padding: 5px;
+            border-bottom: 1px solid #000;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        /* Games Section */
+        .games {
+            padding: 10px;
+        }
+
+        .games h2 {
+            color: #fff;
+            background: linear-gradient(to right, #00CCFF, #00CC00);
+            padding: 5px;
+            border-bottom: 1px solid #000;
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .game-item {
+            background: rgba(240, 240, 240, 0.9);
+            padding: 10px;
+            border: 1px solid #000;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), inset 0 0 5px rgba(255, 255, 255, 0.5);
+            transition: all 0.1s;
+        }
+
+        .game-item:hover {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .game-item img {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #000;
+            margin-bottom: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-item h3 {
+            color: #006600;
+            font-size: 18px;
+        }
+
+        .game-item p {
+            color: #444;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation Menu -->
+        <nav class="sidebar">
+            <h2>zri.info</h2>
+            <ul>
+                <li><img src="/images/home-icon.png" alt="Home Icon" class="nav-icon"> <a href="#" class="active">Home</a></li>
+                <li><img src="/images/action-icon.png" alt="Action Icon" class="nav-icon"> <a href="#">Action</a></li>
+                <li><img src="/images/puzzle-icon.png" alt="Puzzle Icon" class="nav-icon"> <a href="#">Puzzle</a></li>
+                <li><img src="/images/racing-icon.png" alt="Racing Icon" class="nav-icon"> <a href="#">Racing</a></li>
+                <li><img src="/images/music-icon.png" alt="Music Icon" class="nav-icon"> <a href="#">Music</a></li>
+                <li><img src="/images/history-icon.png" alt="History Icon" class="nav-icon"> <a href="#">History</a></li>
+                <li><img src="/images/contact-icon.png" alt="Contact Icon" class="nav-icon"> <a href="#">Contact</a></li>
+            </ul>
+            <div class="visitor-counter">
+                <p>Visitors: <span id="visitor-count">0,000,000</span></p>
+            </div>
+            <button id="theme-toggle" class="theme-btn">Themes</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Banner -->
+            <header class="banner">
+                <h1>zri.info</h1>
+            </header>
+
+            <!-- Welcome Section - Blank -->
+            <section class="welcome">
+                <h2>Welcome</h2>
+                <!-- Content left blank -->
+            </section>
+
+            <!-- Featured Games -->
+            <section class="games">
+                <h2>Featured Games</h2>
+                <div class="game-grid">
+                    <div class="game-item">
+                        <img src="/images/game1.jpg" alt="Game 1">
+                        <h3>Game 1</h3>
+                        <p>Action</p>
+                    </div>
+                    <div class="game-item">
+                        <img src="/images/game2.jpg" alt="Game 2">
+                        <h3>Game 2</h3>
+                        <p>Puzzle</p>
+                    </div>
+                    <div class="game-item">
+                        <img src="/images/game3.jpg" alt="Game 3">
+                        <h3>Game 3</h3>
+                        <p>Racing</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            let isAltTheme = false;
+
+            // Theme Toggle - Switches to a slightly different Frutiger Aero palette
+            themeToggle.addEventListener('click', () => {
+                if (isAltTheme) {
+                    document.body.classList.remove('alt-theme');
+                    themeToggle.textContent = 'Themes';
+                    document.querySelectorAll('.sidebar h2, .banner, .welcome h2, .games h2').forEach(el => {
+                        el.style.background = 'linear-gradient(to right, #00CCFF, #00CC00)';
+                    });
+                    document.querySelectorAll('.sidebar ul li a').forEach(el => {
+                        el.style.color = '#006600';
+                    });
+                    document.querySelectorAll('.sidebar ul li a:hover, .sidebar ul li a.active').forEach(el => {
+                        el.style.color = '#00CCFF';
+                    });
+                } else {
+                    document.body.classList.add('alt-theme');
+                    themeToggle.textContent = 'Default Theme';
+                    document.querySelectorAll('.sidebar h2, .banner, .welcome h2, .games h2').forEach(el => {
+                        el.style.background = 'linear-gradient(to right, #00FF99, #00CCFF)';
+                    });
+                    document.querySelectorAll('.sidebar ul li a').forEach(el => {
+                        el.style.color = '#006666';
+                    });
+                    document.querySelectorAll('.sidebar ul li a:hover, .sidebar ul li a.active').forEach(el => {
+                        el.style.color = '#00FF99';
+                    });
+                }
+                isAltTheme = !isAltTheme;
+            });
+
+            // Static Visitor Counter
+            const visitorCount = document.getElementById('visitor-count');
+            visitorCount.textContent = '0,000,001';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zri | games</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        /* Global Styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: white; /* Default text color */
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        p {
+            text-align: center;
+            color: white;
+        }
+
+        /* Animated Button Styles */
+        button {
+            position: relative;
+            height: 60px;
+            width: 200px;
+            border: none;
+            outline: none;
+            color: white;
+            background: #111;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: "Raleway", sans-serif;
+        }
+
+        button:before {
+            position: absolute;
+            content: "";
+            top: -2px;
+            left: -2px;
+            height: calc(100% + 4px);
+            width: calc(100% + 4px);
+            border-radius: 5px;
+            z-index: -1;
+            opacity: 0;
+            filter: blur(5px);
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            transition: opacity 0.3s ease-in-out;
+            animation: animate 20s linear infinite;
+        }
+
+        button:hover:before {
+            opacity: 1;
+        }
+
+        button:hover:active {
+            background: none;
+        }
+
+        button:hover:active:before {
+            filter: blur(2px);
+        }
+
+        @keyframes animate {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        /* Tag Filters */
+        .tag-filters {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .tag-filter {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #333; /* Darker filter buttons */
+            color: white;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #222; /* Darker card background */
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            font-family: sans-serif;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            max-width: 100%;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+            object-fit: cover;
+            display: block;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 1em;
+            color: #aaa; /* Lighter text in card */
+        }
+
+        .card-button {
+            background-color: #444; /* Darker button in card */
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1em;
+            color: white;
+        }
+
+        .card-button svg {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+        }
+
+        /* iPad Adjustments */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .card { width: 350px; }
+            .card img { height: 300px; }
+            .card-content { padding: 30px; }
+            .card-content h3 { font-size: 1.4em; }
+            .card-content p { font-size: 1.1em; }
+            .card-button { padding: 20px 30px; font-size: 1.2em; }
+            .card-button svg { width: 30px; height: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html"><button>Home</button></a>
+    <p>If there are any issues with the games, or you want to suggest a game, please fill out this form</p>
+
+    <div class="tag-filters">
+        <button class="tag-filter" data-tag="all">All</button>
+        <button class="tag-filter" data-tag="iPad">iPad</button>
+        <button class="tag-filter" data-tag="Desktop">Desktop</button>
+        <button class="tag-filter" data-tag="temp">Temp</button>
+    </div>
+
+    <div class="card-grid">
+        <div class="card" data-tags="iPad Desktop temp">
+            <img src="images/cover/tetris.png" alt="Tetris game cover">
+            <div class="card-content">
+                <h3>Tetris</h3>
+                <p>Tags: iPad, Desktop, Temp</p>
+                <button class="card-button" onclick="window.location.href='games/tetris'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-tags="Desktop">
+            <img src="images/cover/subwaysurfers.png" alt="Subway Surfers game cover">
+            <div class="card-content">
+                <h3>Subway Surfers</h3>
+                <p>Tags: Desktop</p>
+                <button class="card-button" onclick="window.location.href='games/subwaysurfersny/game.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+       
+
+        <div class="card" data-tags="Desktop iPad">
+            <img src="images/cover/monkey mart.png" alt="Subway Surfers game cover">
+            <div class="card-content">
+                <h3>Monkey Mart</h3>
+                <p>Tags: Desktop, iPad</p>
+                <button class="card-button" onclick="window.location.href='games/monkeymart'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+        
+        <div class="card" data-tags="Desktop">
+            <img src="images/cover/tinyfishing.png" alt="Subway Surfers game cover">
+            <div class="card-content">
+                <h3>Tiny Fishing</h3>
+                <p>Tags: iPad</p>
+                <button class="card-button" onclick="window.location.href='games/tinyfishing'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-tags="Desktop">
+            <img src="images/cover/subwaysurfers.png" alt="Subway Surfers game cover">
+            <div class="card-content">
+                <h3>Subway Surfers</h3>
+                <p>Tags: Desktop</p>
+                <button class="card-button" onclick="window.location.href='games/subwaysurfersny/game.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-tags="Desktop">
+            <img src="images/cover/subwaysurfers.png" alt="Subway Surfers game cover">
+            <div class="card-content">
+                <h3>Subway Surfers</h3>
+                <p>Tags: Desktop</p>
+                <button class="card-button" onclick="window.location.href='games/subwaysurfersny/game.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+
+        <div class="card" data-tags="Desktop">
+            <img src="images/cover/subwaysurfers.png" alt="Subway Surfers game cover">
+            <div class="card-content">
+                <h3>Subway Surfers</h3>
+                <p>Tags: Desktop</p>
+                <button class="card-button" onclick="window.location.href='games/subwaysurfersny/game.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    Play
+                </button>
+            </div>
+        </div>
+        </div>
+
+    <script>
+        const tagFilters = document.querySelectorAll('.tag-filter');
+        const cards = document.querySelectorAll('.card');
+
+        tagFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                const selectedTag = filter.dataset.tag;
+
+                cards.forEach(card => {
+                    const cardTags = card.dataset.tags.split(' ');
+
+                    if (selectedTag === 'all' || cardTags.includes(selectedTag)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
